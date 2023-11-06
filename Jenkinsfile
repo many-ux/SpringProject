@@ -15,6 +15,14 @@ pipeline {
                 sh """mvn -version"""
             }
         }
+
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+
+        
     }
 }
 
