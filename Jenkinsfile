@@ -19,6 +19,19 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        stage("Checkout GIT"){
+            steps{
+                echo 'pulling...';
+                git branch: 'main',
+                url : 'https://github.com/many-ux/SpringProject.git';
+            }
+        }
+        
+        stage('Testing Maven'){
+            steps{
+                sh """mvn -version"""
+            }
+        }
     }
 }
 
