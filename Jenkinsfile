@@ -1,8 +1,6 @@
 pipeline {
     agent {
-        image 'maven:3.6.3-adoptopenjdk-11"
-        args '-v /root/.m2:/root/.m2'
-    }
+        image any
 
     stages {
         stage("Checkout GIT"){
