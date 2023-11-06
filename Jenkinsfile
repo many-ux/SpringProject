@@ -24,18 +24,25 @@ pipeline {
 
         
        stage('Test') {
-    steps {
+        steps {
         sh 'mvn test'
-    }
-    /*post {
-        always {
+        }
+            /*post {
+            always {
             steps {
                 junit 'target/surefire-reports/*.xml'
             }
         }
-    }*/
-}
+            }*/
+        }
 
+        stage('MVN SONARQUBE'){
+        steps{
+        withSonarQubeEnv('My SonarQube Server') {
+            sh 'mvn clean package sonar:sonar'
+        }
+    }
+}
 
         
     }
