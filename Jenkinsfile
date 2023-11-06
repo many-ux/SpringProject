@@ -9,7 +9,7 @@ pipeline {
                 url : 'https://github.com/many-ux/SpringProject.git';
             }
         }
-        /*
+        
         stage('Testing Maven'){
             steps{
                 sh """mvn -version"""
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-        }*/
+        }
     }
 }
 
