@@ -1,6 +1,5 @@
 pipeline {
-    agent {
-        image any
+    agent any
 
     stages {
         stage("Checkout GIT"){
