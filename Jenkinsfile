@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        image 'maven:3.8.1-adoptopenjdk-11"
+        args '-v /root/.m2:/root/.m2
+    }
 
     stages {
         stage("Checkout GIT"){
@@ -15,15 +18,21 @@ pipeline {
                 sh """mvn -version"""
             }
         }
+        
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'mvn -B -DskipTests clean packag'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    Junit 'target/surefire-reports/*.xml'
+                }
             }
         }
 
