@@ -38,7 +38,7 @@ pipeline {
 
         stage('MVN SONARQUBE'){
         steps{
-            sh 'mvn clean package sonar:sonar'
+            sh 'mvn sonar:sonar'
     }
 }
 
