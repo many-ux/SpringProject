@@ -23,19 +23,19 @@ pipeline {
         }
 
         
-        stage('Test') {
+       stage('Test') {
+    steps {
+        sh 'mvn test'
+    }
+    post {
+        always {
             steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    script {
-                        Junit 'target/surefire-reports/*.xml'
-                    }
-
-                }
+                junit 'target/surefire-reports/*.xml'
             }
         }
+    }
+}
+
 
         
     }
