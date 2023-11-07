@@ -36,7 +36,7 @@ pipeline {
         maven 'M2_HOME'
     	}
     	steps {
-        withSonarQubeEnv('M2_HOME') {
+        withSonarQubeEnv('SonarQube Scanner for Jenkins') {
             // Just call 'mvn', Jenkins knows where to find it from the 'tools' block.
             sh 'mvn sonar:sonar'
         }
