@@ -16,12 +16,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sonar:sonar
-            }
-        }
-
         
        stage('Test') {
         steps {
@@ -37,11 +31,18 @@ pipeline {
         }
 
         stage ('MVN SONARQUBE'){
-	        def mvnHome = tool name: 'maven-3.6.3', type: 'maven'
-	         withSonarQubeEnv('sonar') {
-		        sh "${mvHome}/bin/mvn sonar:sonar"
-		    }
+    	tools {
+        // Specify the Maven version here.
+        maven 'maven-3.6.3'
+    	}
+    	steps {
+        withSonarQubeEnv('sonar') {
+            // Just call 'mvn', Jenkins knows where to find it from the 'tools' block.
+            sh 'mvn sonar:sonar'
         }
+    }
+}
+
 
         
     }
