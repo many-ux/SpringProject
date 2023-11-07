@@ -33,7 +33,7 @@ pipeline {
         stage ('MVN SONARQUBE'){
     	tools {
         // Specify the Maven version here.
-        maven 'maven-3.6.3'
+        maven 'M2_HOME'
     	}
     	steps {
         withSonarQubeEnv('sonar') {
