@@ -38,7 +38,7 @@ pipeline {
     	steps {
         withSonarQubeEnv('sonar') {
             // Just call 'mvn', Jenkins knows where to find it from the 'tools' block.
-            sh 'mvn sonar:sonar'
+            sh 'mvn sonar:sqa_70fa1294456b77ce4bf1e83e591f147d72b81d62'
         }
     }
 }
