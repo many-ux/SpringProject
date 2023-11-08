@@ -42,7 +42,14 @@ pipeline {
         }
     }
 }
-
+        
+        stage('Nexus') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+            }
+        }
+    }
+}
 
         
     }
