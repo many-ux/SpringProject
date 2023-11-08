@@ -30,7 +30,7 @@ pipeline {
             }*/
         //}
 
-        stage ('MVN SONARQUBE'){
+/*        stage ('MVN SONARQUBE'){
     	tools {
         // Specify the Maven version here.
         maven 'M2_HOME'
@@ -41,7 +41,7 @@ pipeline {
             sh 'mvn sonar:sonar'
         }
     }
-}
+}*/
         
         stage('Nexus') {
             steps {
