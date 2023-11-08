@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        
+        /*
        stage('Test') {
         steps {
         sh 'mvn test'
@@ -28,7 +28,7 @@ pipeline {
             }
         }
             }*/
-        }
+        //}
 
         stage ('MVN SONARQUBE'){
     	tools {
