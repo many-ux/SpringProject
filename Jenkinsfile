@@ -62,7 +62,7 @@ pipeline {
       stage('Docker') {
             steps {
                 script{
-			        sh 'docker build -t nassermany/devops-integration .'
+			        sh 'sudo docker build -t nassermany/devops-integration .'
 			           }
                     }
         }
