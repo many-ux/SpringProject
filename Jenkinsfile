@@ -17,7 +17,7 @@ pipeline {
         }
 
         
-       stage('Test') {
+       stage('Maven Test') {
         steps {
         sh 'mvn test'
         }
@@ -30,7 +30,7 @@ pipeline {
             }*/
         }
 
-        stage ('MVN SONARQUBE'){
+        stage ('MVN Sonarqube'){
     	tools {
         // Specify the Maven version here.
         maven 'M2_HOME'
@@ -49,6 +49,14 @@ pipeline {
         //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GIT-REPO', url: 'https://github.com/many-ux/SpringProject.git']]])
     }
 }
+
+      /*  stage('Building Image') {
+    steps {
+        
+    }
+}*/
+
+        
 
     }
 }
