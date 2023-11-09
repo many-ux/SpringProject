@@ -44,10 +44,12 @@ pipeline {
 }
         
         stage('Nexus') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-            }
-        }
+    steps {
+        sh 'mvn deploy -DskipTests'
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GIT-REPO', url: 'https://github.com/many-ux/SpringProject.git']]])
+    }
+}
+
     }
 }
 
