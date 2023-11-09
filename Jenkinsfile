@@ -49,7 +49,7 @@ pipeline {
         //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GIT-REPO', url: 'https://github.com/many-ux/SpringProject.git']]])
     }
 }
-        stages {
+  
         stage('Docker login') {
             steps {
                 sh '''
@@ -57,7 +57,7 @@ pipeline {
                 '''
             }
         }
-	}
+
 
       stage('Docker') {
             steps {
