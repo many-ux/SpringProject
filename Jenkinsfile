@@ -67,6 +67,15 @@ pipeline {
                     }
         }
 
+	    stage('Push Docker Image') {
+    steps {
+        script {
+            sh 'docker push nassermany/devops-integration'
+        }
+    }
+}
+
+
         
 
     }
