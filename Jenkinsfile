@@ -49,12 +49,22 @@ pipeline {
         //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GIT-REPO', url: 'https://github.com/many-ux/SpringProject.git']]])
     }
 }
+        stages {
+        stage('Docker login') {
+            steps {
+                sh '''
+                    docker login -u nassermany -p Manytheking0
+                '''
+            }
+        }
 
-      /*  stage('Building Image') {
-    steps {
-        
-    }
-}*/
+      stage('Docker') {
+            steps {
+                script{
+			        sh 'docker build -t nassermany/devops-integration
+			           }
+                    }
+        }
 
         
 
