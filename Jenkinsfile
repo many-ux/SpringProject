@@ -53,7 +53,7 @@ pipeline {
         stage('Docker login') {
             steps {
                 sh '''
-		echo Manytheking0 | sudo -S docker login -u nassermany
+		echo 'Manytheking0' | sudo -S docker login -u nassermany
                 '''
             }
         }
