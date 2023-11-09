@@ -50,13 +50,6 @@ pipeline {
     }
 }
   
-      /*  stage('Docker login') {
-            steps {
-                sh '''
-		echo 'Manytheking0' | sudo -S docker login -u nassermany
-                '''
-            }
-        }*/
 
 
       stage('Docker') {
@@ -66,6 +59,14 @@ pipeline {
 			           }
                     }
         }
+
+	    stage('Docker Login') {
+    steps {
+        script {
+            sh 'docker login -u nassermany -p Manytheking0'
+        }
+    }
+}
 
 	    stage('Push Docker Image') {
     steps {
