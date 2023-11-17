@@ -63,7 +63,7 @@ pipeline {
 	    stage('Docker Login') {
     steps {
         script {
-            sh 'docker login -u nassermany -p Manytheking0'
+            sh 'docker login -u nassermany -p PASSWORD'
         }
     }
 }
